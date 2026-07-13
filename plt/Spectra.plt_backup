@@ -1,0 +1,50 @@
+#!/usr/bin/gnuplot
+
+set colors classic
+set term qt
+
+ang = 1.e-10  # m
+nm = 1.e-9  # m
+
+set xl "lambda [ang]"
+set yl "I_lambda [] (shifted by dataset number)"
+
+#set yr [2.55:3.35]
+#set xr [4500:4800]
+
+fac = 0.25
+set ytics fac
+set mytics 1
+set grid ytics mytics
+set zeroaxis
+set bar 0.5
+
+bind "k" "unset xrange; unset yrange; replot"
+bind "1" "set xr [4500:4800]; replot"
+
+m=7
+n=10
+datasets = "17 57 235 214 269"
+
+
+p \
+  "<awk -v m=" .m. " -v n=" .n. " '($5 >= m && $5 <= n)&& ($5!=i) { print s; } ($5 >= m && $5 <= n) { print; i=$5; }' Spectra.dat" u ($2/ang):($3+fac*($5-1)) t 'without lines' w l lt 3 ,\
+  "<awk -v dataset=" .datasets. " '($4==17) {print $2*10**10, $3}' ../synthetic.dat" u 1:2 t 'synthetic' w l lc 'orange',\
+#  "<awk '($4==57) {print $2*10**10, $3+0.25}' ../synthetic.dat" u 1:2 t 'synthetic' w l lc 'orange',\
+#  "<awk '($4==235) {print $2*10**10, $3+8*0.25}' ../synthetic.dat" u 1:2 t 'synthetic' w l lc 'orange',\
+#  "<awk '($4==214) {print $2*10**10, $3+7*0.25}' ../synthetic.dat" u 1:2 t 'synthetic' w l lc 'orange',\
+#  "<awk '($4==269) {print $2*10**10, $3+9*0.25}' ../synthetic.dat" u 1:2 t 'synthetic' w l lc 'orange',\
+#  "Spectra.dat" u ($2*10**10):7 w l lc 'black',\
+#  "<awk '($5!=i){ print s; } { print; i=$5; }' ../../resimplex2-7-no-eps-degree2/output/Spectra.dat" u ($2/ang):($3+fac*($5-1)) t 'with lines' w l lt 3 lc 'red',\
+
+
+pa -1
+
+set term png small
+set out "Spectra.png"
+rep
+
+q
+
+  "Spectra.dat" u ($2/nm):($3+1*$5):4 w err lt 3 pt 1 ps 0
+

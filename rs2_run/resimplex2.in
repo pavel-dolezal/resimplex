@@ -1,0 +1,73 @@
+# n_dat, n_ord, n_pnt, n_var
+1 62 801
+
+# prefix
+ktc
+
+#gain of CCD 
+# now teledyne CTIO CHIRON e2v CCD231-84
+1.3d0
+
+# highest number in names of data files
+400
+
+# do not compute chi2 AFTER this order (not included) (end_chi2)
+99
+
+# split
+16	28	48
+
+# degree of adtge poly
+4
+
+# aditional parameters and debugging
+# tmp files keep track of x and chi2 / every 10th iteration [BE AWARE - high memory usage]
+# debugging prints inner parameters into debug*.tmp files / every iteration [BE AWARE - high memory usage]
+T       # rectify?
+T	# are synthetic spectra available?
+F       # output with teluric lines? (does not count into chi2, does not affect the rectification)
+F       # debug loader?
+F	# debug chi2_func_presx? [!!! BE AWARE - HIGH MEMORY USAGE !!!]
+F	# tmp file for chi2_func_presx?
+F	# debug chi2_func? [!!! BE AWARE - HIGH MEMORY USAGE !!!]
+F	# tmp file for chi2_func?
+F	# tmp file for fitadetg_func?
+F	# debug heliocorr?
+F	# debug teluric?
+
+# starting alfa, delta, theta, gamma, epsilon
+1.0	0.0	0.0	0.0	0.0
+0.0	0.0	0.0	0.0	0.0
+0.0	0.0	0.0	0.0	0.0
+0.0	0.0	0.0	0.0	0.0
+0.0	0.0	0.0	0.0	0.0
+
+# skipped orders (write '99' for none)
+7	8	9       10      11      39      40      44	52	57
+
+#e(alfa) e(delta) e(epsilon) e(theta) e(lambda_c) e(maximum_blaze) 
+1.00E+01        1.00E+00        1.00E-02        1.00E-04        1.00E-7
+1.00E+04        1.00E+03        1.00E+01        1.00E+00        1.00E-3
+1.00E+05        1.00E+04        1.00E+02        1.00E-02        1.00E-3
+1.00E+05        1.00E+04        1.00E+02        1.00E+02        1.00E-3
+1.00E+04        1.00E+03        1.00E+02        1.00E-00        1.00E-2
+2
+7500
+
+#teltreshold
+0.995
+
+# convergence treshold
+20
+
+# fractional convergence tolerances (ftol)
+1.0e-15
+
+# maximum number of iterations for presimplex (ITMAX1)
+500
+
+# maximum number of iterations for main cycle (ITMAX)
+5000
+
+#SPECIFICATION / METHOD  OF RECTIFICATION (write in words len=300)
+resimplex 2+presimplex alpha, delta, theta, gamma, epsilon are based on polynomials, lambda_c and max_blaze are free (for order, dataset)

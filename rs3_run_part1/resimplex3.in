@@ -1,0 +1,79 @@
+# n_dat, n_ord, n_pnt, n_var
+1 62 801
+
+# prefix
+ktc
+
+#gain of CCD
+# now teledyne CTIO CHIRON e2v CCD231-84
+1.3d0
+
+# number greater than the highest in data file names
+400
+
+# do not compute chi2 AFTER this order (not included) (end_chi2)
+# e.g. if the end parts of synthetic spectra are too uncertain
+99
+
+#split
+16	28	48
+
+# degree of adtge poly
+4
+
+# aditional parameters and debugging
+# tmp files keep track of x and chi2 / every 10th iteration [BE AWARE - high memory usage]
+# debugging prints inner parameters into debug*.tmp files / every iteration [BE AWARE - high memory usage]
+T	# rectify?
+T	# are synthetic spectra available?
+F	# rectify with teluric lines? (does not count into chi2, does not affect the rectification)
+F	# debug loader?
+F	# debug chi2_funcA? (lambda_c poly)
+F	# debug chi2_funcB? (max_blaze poly)
+F	# debug chi2_func2? (free lambda_c, max_blaze)
+F	# tmp file for chi2_funcA? (lambda_c poly) 
+F	# tmp file for chi2_funcB? (max_blaze poly)
+F	# tmp file for chi2_func2? (free lambda_c, max_blaze)
+F	# tmp file for fitA_func? (fitting free max_blaze with poly)
+F	# tmp file for fitlc_func? (fitting free lambda_c with poly)
+F	# debug heliocorr?
+
+# order of max_blaze polynomial (max_ord) and lambda_c polynomial (lc_ord)
+8	9
+
+# rough estimation of max_blaze and lambda_c for lcAfree module
+50000
+4530    4565    4600    4640    4680    4715    4760    4795    4840    4880    4920    4965    5010    5055    5100    5145    5195    5240    5290    5340    5390    5440    5495    5550    5605    5660    5715    5775    5835    5895    5955    6020    6085    6150    6220    6290    6360    6430    6505    6580    6660    6735    6815    6900    6985    7070    7160    7250    7350    7440    7540    7645    7750    7850    7970    8080    8200    8310    8440	8570    8700    8830
+
+# skipped orders write '99' for none
+7	8	9       10      11      39      40      44      52	57
+
+# initial steps e for lc, A polynomials and for free lc, A 
+1e4    1e3    1e2    1e0    1e-2    1e-3    1e-4    1e-7    1e-8    1e-9
+1e4    1e2    1e1    1e1    1e-1    1e-3    1e-4    1e-7    1e-8    1e-9
+2
+7500
+#1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16
+#teltreshold
+0.995
+
+# convergence treshold
+0.01
+
+# number of convergences
+6
+
+# maximum number of iterations for presimplex (ITMAX)
+2500
+
+# maximum number of iterations per convergence for lambda_search and maxblaze_sarch (ITMAX2)
+2500
+
+# fractional convergence tolerance for maxblaze and lambda_c search (ftol)
+1.0e-15
+
+#fractional convergence tolerance for presimplex and fitlc / fitA (ftol_pres)
+1.0e-15
+
+#SPECIFICATION / METHOD  OF RECTIFICATION (write in words len=300)
+resimplex 3: alpha, delta, theta, gamma, epsilon - constant polynomials from resimplex2, lambda_c, max_blaze newly found polynomials (unique to each dataset)

@@ -1,0 +1,1 @@
+../../sh/sort_spectra.sh

@@ -1,0 +1,1 @@
+../../sh/addchi2toblaze2.sh

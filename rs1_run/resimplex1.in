@@ -1,0 +1,48 @@
+# n_dat, n_ord, n_pnt
+1 62 801
+
+# prefix of data files
+ktc
+
+# gain of CCD
+# now teledyne CTIO CHIRON e2v CCD231-84
+1.3d0
+
+# highest number in names of data files
+400
+
+# do not compute chi2 after this order (not included)
+# (for example if the end parts of synthetic spectra are too uncertain)
+99
+
+T # rectify?
+T # use synthetic spectra?
+F # debug loader?
+F # debug chi2_func?
+T # create tmp file? [keeps track of x and chi2 in chi2_func]
+F # debug heliocorr?
+F # debug teluric?
+
+# starting alfa, delta, theta, gamma, epsilon
+# lambda_c
+# max_blaze
+0.9	-8.0	10	1	0
+4530	4565	4600	4640	4680	4715	4760	4795	4840	4880	4920	4965	5010	5055	5100	5145	5195	5240	5290	5340	5390	5440	5495	5550	5605	5660	5715	5775	5835	5895	5955	6020	6085	6150	6220	6290	6360	6430	6505	6580	6660	6735	6815	6900	6985	7070	7160	7250	7350	7440	7540	7645	7750	7850	7970	8080	8200	8310	8440	8570	8700	8830
+50000
+
+#e(alfa) e(delta) e(theta) e(gamma) e(lambda_c) e(maximum_blaze) 
+1.5	50.0	50.0	50.0	20
+5
+75000
+
+#teltreshold 13-17
+0.995
+
+# array of fractional convergence tolerances for iterations (ftol_array)
+1.0e-7 1.0e-12
+
+# maximum number of iterations per convergence (ITMAX)
+2000000
+
+#SPECIFICATION / METHOD  OF RECTIFICATION (write in words len=300)
+ resimplex 1, all blaze parameters free

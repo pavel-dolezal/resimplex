@@ -1,0 +1,1 @@
+../../sh/spectra_to_xitau.sh
