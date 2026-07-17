@@ -1,3 +1,3 @@
 clean:
 	rm *.out *.err *.tmp *.png || true
-	rm output/*.dat output/input_for_rs2/*.tmp
+	rm output/blaze2_chi2.tmp output/blaze1_chi2.tmp output/*.dat output/input_for_rs2/*.tmp
